@@ -394,6 +394,9 @@ function calculateTargetPlanner() {
 function renderTargetResult() {
   const result = calculateTargetPlanner();
 
+  // Resets status styling before applying the class for the current result.
+  targetResultEl.classList.remove("is-success", "is-error");
+
   switch (result.status) {
     case "invalid":
       targetResultEl.textContent = "";
@@ -405,14 +408,17 @@ function renderTargetResult() {
     case "impossible":
       targetResultEl.textContent =
         `This target isn't mathematically achievable. You would need a ${result.requiredGpa.toFixed(2)} GPA, which is above the 4.00 maximum.`;
+      targetResultEl.classList.add("is-error");
       break;
     case "secured":
       targetResultEl.textContent =
         "You have already secured this target GPA, even with a 0.00 GPA in your future courses.";
+      targetResultEl.classList.add("is-success");
       break;
     case "ok":
       targetResultEl.textContent =
         `You will need an average GPA of ${result.requiredGpa.toFixed(2)} in your planned future credits to reach your target.`;
+      targetResultEl.classList.add("is-success");
       break;
   }
 }

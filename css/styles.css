@@ -238,6 +238,16 @@ body {
   margin: 8px 0 0;
 }
 
+.target-result.is-success {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.target-result.is-error {
+  color: var(--color-error);
+  font-weight: 600;
+}
+
 /* Reset */
 
 .reset-section {
