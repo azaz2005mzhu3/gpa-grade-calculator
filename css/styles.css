@@ -1,0 +1,258 @@
+/* GPA & Grade Calculator styles — see DESIGN.md for the design system */
+
+:root {
+  --color-bg: #F5F9FF;
+  --color-card: #FFFFFF;
+  --color-accent-light: #DCEBFA;
+  --color-primary: #377DB8;
+  --color-text: #1F344A;
+  --color-text-secondary: #64748B;
+  --color-border: #D9E3EE;
+  --color-error: #B42318;
+  --color-success: #167347;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* Header */
+
+.site-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.site-header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0 0 8px;
+}
+
+.site-description {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Cards */
+
+.card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+/* Forms */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-field input,
+.form-field select {
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: var(--color-card);
+  color: var(--color-text);
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.form-field.has-error input,
+.form-field.has-error select {
+  border-color: var(--color-error);
+}
+
+.error-message {
+  font-size: 13px;
+  color: var(--color-error);
+  margin: 6px 0 0;
+  min-height: 16px;
+}
+
+/* Buttons */
+
+.btn {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #2F6B9C;
+}
+
+.btn-secondary {
+  background-color: var(--color-card);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-accent-light);
+}
+
+.btn-danger {
+  background-color: var(--color-card);
+  color: var(--color-error);
+  border-color: var(--color-error);
+  height: 44px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+.btn-danger:hover {
+  background-color: #FBEAE8;
+}
+
+/* Course list */
+
+.empty-message {
+  color: var(--color-text-secondary);
+  font-size: 15px;
+}
+
+.course-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.course-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.course-item:last-child {
+  border-bottom: none;
+}
+
+.course-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 15px;
+}
+
+.course-info .course-name {
+  font-weight: 600;
+}
+
+.course-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* GPA Summary */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.gpa-value {
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin: 0 0 16px;
+}
+
+.summary-card .form-grid {
+  text-align: left;
+}
+
+/* Target GPA Planner */
+
+.target-result {
+  font-size: 16px;
+  color: var(--color-text);
+  margin: 8px 0 0;
+}
+
+/* Reset */
+
+.reset-section {
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
