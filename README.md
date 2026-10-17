@@ -69,4 +69,12 @@ In the actual implementation, `state` only holds `courses` and `editingCourseId`
 
 ## 8. Required Question — AI Collaboration and Reflection
 
-See the section below, written separately for review.
+One piece of AI-generated output I reviewed and did not accept as-is was the Target GPA Planner's result message. The AI's original version displayed the same plain text color for every outcome — whether the target was easily achievable, already secured, or mathematically impossible (requiring a GPA above 4.00).
+
+My `DESIGN.md` defines a dedicated "Success Text" color (`#167347`) and states that "the section should clearly distinguish achievable targets from targets requiring a GPA above 4.00." I compared the rendered page against this requirement and noticed the planner never actually used that color — every result looked identical regardless of whether the news was good or bad.
+
+I asked for this to be fixed so that achievable/secured results are shown in green (`var(--color-success)`) and impossible results are shown in red (`var(--color-error)`), matching the existing error-message styling already used elsewhere on the page. I verified the fix by entering test values for all three outcomes and checking the rendered text color in the browser before accepting the change.
+
+This experience taught me that AI-generated code can work correctly but still miss important design details. Even though the GPA calculations were accurate, I needed to compare the actual website with my DESIGN.md to make sure the results were displayed clearly. It also helped me understand why testing different scenarios is important, instead of just checking whether the code runs.
+
+**Git Commit:** [`c8b81d1`](https://github.com/azaz2005mzhu3/gpa-grade-calculator/commit/c8b81d1b873e37c8a46fd344d311eda74fee86e7) — "Color-code Target GPA Planner result by achievability status"
