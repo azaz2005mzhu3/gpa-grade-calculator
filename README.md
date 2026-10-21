@@ -43,7 +43,7 @@ No server, database, or external API is used, per `AGENTS.md`.
 
 ## 5. Live Website
 
-TODO: Add the GitHub Pages link here once the site is deployed.
+[https://azaz2005mzhu3.github.io/gpa-grade-calculator/](https://azaz2005mzhu3.github.io/gpa-grade-calculator/)
 
 ## 6. Differences from My Original Proposal
 
